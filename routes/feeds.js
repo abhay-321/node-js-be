@@ -5,10 +5,10 @@ const feedsCtlr = require('../controllers/feeds');
 
 const router = express.Router();
 
-router.get('/feed',feedsCtlr.getPosts);  
+router.get('/post',feedsCtlr.getPosts);  
 
 router.post(
-    '/feed',
+    '/post',
     [
         body('title')
         .trim()

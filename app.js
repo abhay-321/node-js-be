@@ -1,5 +1,5 @@
 const express  = require('express');
-
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 
@@ -16,7 +16,17 @@ app.use((req,res,next)=>{
     next();
 })
 
-app.use('/user',feedRoutes);
+app.use('/feed',feedRoutes);
 
+mongoose
+    .connect(
+    'mongodb+srv://root:DruVTnjHxmvtdReJ@mycluster-fdxao.mongodb.net/feeds?retryWrites=true&w=majority')
+    .then(res =>{
+        console.log("connection res",res);
+        app.listen(8080);
+    })
+    .catch(err => {
+        console.log("err",err);
+})
 
-app.listen(8080);
+    
