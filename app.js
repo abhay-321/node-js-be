@@ -26,7 +26,7 @@ mongoose
         app.listen(8080);
     })
     .catch(err => {
-        console.log("err",err);
+        console.log("err connecting to db",err);
 })
 
     
