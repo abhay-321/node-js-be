@@ -20,3 +20,19 @@ router.post(
     feedsCtlr.createPost);
 
 module.exports = router;
+
+router.get('/post/:postId',feedsCtlr.getPost); 
+
+router
+    .put('/post/:postId',
+    [
+        body('title')
+        .trim()
+        .isLength({min:5}),
+        body('content')
+        .trim()
+        .isLength({min:5})      
+    ],    
+    feedsCtlr.updatePost); 
+
+router.delete('/post/:postId',feedsCtlr.deletePost); 
